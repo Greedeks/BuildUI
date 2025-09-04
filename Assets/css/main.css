@@ -113,6 +113,7 @@ html,
 		display: flex;
 		justify-content: space-around;
 		position: relative;
+		overflow: hidden;
 	}
 
 	.nav-glass .nav-link {
@@ -127,7 +128,7 @@ html,
 	}
 
 	.nav-glass .nav-link:hover {
-		color: #7FC7FF;
+		color: #b1d3f3;
 	}
 
 	.nav-glass .nav-link.active {
@@ -137,12 +138,15 @@ html,
 
 	.nav-indicator {
 		position: absolute;
-		height: 100%;
+		top: 0px;
+    	bottom: 0px;       
+    	height: auto;    
+		width: auto;  
 		background: rgba(255, 255, 255, 0.05);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		border-radius: 15px;
-		transition: all 0.3s ease;
+		transition: left 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
 		z-index: 0;
 	}
 
