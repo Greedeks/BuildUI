@@ -21,7 +21,7 @@
     border-radius: 15px;
     position: relative;
     text-decoration: none;
-    color: #fff;
+    color: #ffffffcc;
     min-height: 48px;
     font-size: clamp(12px, 1.2vw, 16px);
 	min-width: min-content;
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: #fff;
+    color: #ffffffcc;
     text-decoration: none;
     font-size: clamp(12px, 1.2vw, 16px);
     font-weight: 500;
@@ -99,6 +99,28 @@
     transition: all 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
     z-index: 0;
 }
+
+.nav-tooltip {
+    position: fixed;
+    background: rgb(8, 14, 20);
+    color: #e0c1a7;
+    text-shadow: 0px 2px 10px #d0b6a0;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.98);
+    transition: opacity .15s ease, transform .15s ease;
+    z-index: 9999;
+}
+
+.nav-tooltip.show {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+}   
 
 @media (min-width: 1200px) and (min-resolution: 300dpi) {
     .nav-glass {
