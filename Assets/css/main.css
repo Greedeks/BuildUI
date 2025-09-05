@@ -16,7 +16,6 @@ body {
 	flex-direction: column;
 	position: relative;
 	height: 100vh;
-	overflow: hidden;
 }
 
 .wrapper::before {
@@ -43,82 +42,6 @@ main.main {
 	justify-content: center;
 	align-items: center;
 	padding: 2rem;
-}
-
-/* Navigation */
-.nav-glass {
-	background: rgba(0, 0, 0, 0.2);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 20px;
-	box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-	display: flex;
-	justify-content: space-around;
-	position: relative;
-	overflow: hidden;
-}
-.nav
--glass .nav-link {
-	color: #fff;
-	text-decoration: none;
-	font-weight: 500;
-	transition: all 0.3s ease;
-	padding: 0.7rem 1.5rem;
-	border-radius: 15px;
-	position: relative;
-	z-index: 1;
-}
-.nav-glass .nav-link:hover {
-	color: #d0b6a0;
-}
-
-.nav-glass .nav-link.active {
-	color: #e0c1a7;
-	font-weight: 600;
-	text-shadow: 0px 2px 20px #d0b6a0;
-}
-
-.nav-indicator {
-	position: absolute;
-	top: 0px;
-	bottom: 0px;       
-	height: auto;     
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	border-radius: 15px;
-	transition: left 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
-	z-index: 0;
-}
-
-.nav-link {
-    flex: 1;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    gap: 8px;
-    padding: 0.7rem 0; 
-    font-weight: 500;
-    border-radius: 15px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.nav-icon {
-    width: 22px;
-    height: 22px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    color: #ffffffcc;
-}
-
-.nav-link:hover .nav-icon {
-    color: #d0b6a0;
-    transform: scale(1.1);
-}
-
-.nav-link.active .nav-icon {
-    color: #e0c1a7; 
 }
 
 /* Content */
@@ -170,17 +93,4 @@ footer.footer {
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Adaptivation */
-@media (max-width: 768px) {
-	.nav-glass {
-			gap: 1rem;
-			padding: 0.5rem 1rem;
-			width: 90% !important;
-	}
-	.nav-glass .nav-link {
-			font-size: 14px;
-			padding: 0.5rem 1rem;
-	}
 }

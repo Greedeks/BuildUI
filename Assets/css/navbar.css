@@ -1,0 +1,124 @@
+.nav-glass {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    min-height: 48px;
+    font-size: clamp(12px, 1.2vw, 16px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-text {
+    white-space: nowrap;
+}
+
+.nav-glass .nav-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(12px, 1.2vw, 16px);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+    min-height: 48px;
+    line-height: 1;
+}
+
+.nav-glass .nav-link:hover {
+    color: #d0b6a0;
+}
+
+.nav-glass .nav-link.active {
+    color: #e0c1a7;
+    font-weight: 600;
+    text-shadow: 0px 2px 20px #d0b6a0;
+}
+
+.nav-icon {
+    width: clamp(16px, 2vw, 22px);
+    height: clamp(16px, 2vw, 22px);
+    transition: color 0.3s ease, transform 0.3s ease;
+    color: #ffffffcc;
+	flex-shrink: 0;
+}
+
+.nav-link:hover .nav-icon {
+    color: #d0b6a0;
+    transform: scale(1.1);
+}
+
+.nav-link.active .nav-icon {
+    color: #e0c1a7;
+}
+
+.nav-indicator {
+    position: absolute;
+    top: 0;
+    height: 100%; 
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    transition: left 0.4s cubic-bezier(0.25, 1.5, 0.5, 1), width 0.4s, top 0.4s;
+    z-index: 0;
+}
+
+/* Adaptive */
+@media (max-width: 768px) {
+    .nav-glass {
+        gap: 0.5rem;
+        width: 95% !important;
+    }
+    .nav-link {
+        font-size: clamp(11px, 2vw, 13px);
+        gap: 6px;
+    }
+    .nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-glass {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .nav-link {
+        font-size: 0;
+        padding: 0.6rem;
+    }
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+    }
+}
