@@ -98,7 +98,6 @@
 }
 
 .nav-glass .nav-link:hover {color: #d0b6a0; }
-
 .nav-glass .nav-link.active {
     color: #e0c1a7;
     font-weight: 600;
@@ -108,7 +107,6 @@
     color: #d0b6a0;
     transform: scale(1.1);
 }
-
 .nav-link.active .nav-icon { color: #e0c1a7; }
 
 .nav-tooltip.show {
