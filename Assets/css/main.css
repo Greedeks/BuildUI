@@ -1,7 +1,5 @@
 /* General */
-html, body {
-	height: 100%;
-}
+html, body { height: 100%; }
 
 body {
 	min-width: 320px;
@@ -59,9 +57,7 @@ main.main {
 		max-width: 900px;
 }
 
-.main {
-    margin-top: 100px;
-}
+.main { margin-top: 100px; }
 
 .main h1 {
 		font-family: 'Unbounded';
@@ -85,4 +81,12 @@ footer.footer {
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 480px) {
+    .main { margin-top: 40px; }
+}
+
+@media (min-resolution: 150dpi) {
+    .main { margin-top: 100px; }
 }
