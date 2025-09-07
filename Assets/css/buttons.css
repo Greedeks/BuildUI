@@ -8,6 +8,9 @@
 		border-radius: 30px;
 		font-weight: 500;
 		transition: all 0.3s ease;
+		-webkit-transform: translateZ(0);
+    	transform: translateZ(0);
+    	will-change: transform, backdrop-filter;
 		text-decoration: none;
 		display: inline-block;
 }

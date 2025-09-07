@@ -2,6 +2,9 @@
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+	-webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -12,6 +15,7 @@
 	min-width: min-content;
     max-width: 100%;
     margin: 0 auto;
+    
 }
 
 .nav-link {
@@ -114,6 +118,10 @@
     transform: translate(-50%, 0) scale(1);
 }   
 
+@media (min-resolution: 150dpi) {
+     .w-50 { width: 75% !important; }
+}
+
 @media (min-width: 1200px) and (min-resolution: 300dpi) {
     .nav-glass { padding: 0.8rem 1rem; }
     
@@ -129,8 +137,6 @@
 }
 
 @media (max-width: 480px) {
-    .w-50 { width: 75% !important; }
-
     .main { margin-top: 0px; }
 
     .nav-text { display: none; }

@@ -194,6 +194,9 @@ main.main {
     max-width: 1100px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
 }
 
 .counters-title {
@@ -225,6 +228,9 @@ main.main {
     max-width: calc(50% - 10px);
     min-width: 160px;
     box-sizing: border-box;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
 }
 
 .counter-item:hover {
@@ -268,8 +274,8 @@ footer.footer {
     .preview { margin-top: 50px; }
 }
 
-@media (max-width: 992px) {
-    .counter-item {
+@media (min-resolution: 150dpi) {
+        .counter-item {
         flex: 1 1 calc(33.333% - 20px); 
         max-width: calc(33.333% - 15px);
     }
