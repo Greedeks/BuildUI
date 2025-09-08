@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navIndicator = document.getElementById('navIndicator');
 
     function moveIndicator(link) {
-        if (!link) return;
+        if (!link || !navIndicator) return;
         navIndicator.style.width = `${link.offsetWidth}px`;
         navIndicator.style.height = `${link.offsetHeight}px`;
         navIndicator.style.left = `${link.offsetLeft}px`;
@@ -17,11 +17,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            if (this.classList.contains('active') || this.href === window.location.href) {
+                e.preventDefault();
+                return;
+            }
+            const targetUrl = this.href;
+            
             e.preventDefault();
+            
             navLinks.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
             moveIndicator(this);
             showTooltipFor(this);
+
+            setTimeout(() => {window.location.href = targetUrl; }, 400); 
         });
     });
 
@@ -40,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.ResizeObserver) {
         const navContainer = document.querySelector('.nav-glass');
         const observer = new ResizeObserver(() => updateIndicator());
-        observer.observe(navContainer);
+        if (navContainer) observer.observe(navContainer);
     }
 
     // Tooltip

@@ -343,18 +343,7 @@ footer.footer {
 
     .form-control { font-size: 0.85rem; }
 
-    footer.footer {
-        font-size: 0.8rem;
-        padding: 0.6rem;
-    }
-    
-    .footer-content {
-        gap: 0.3rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-     .success-modal-content { padding: 1.5rem; }
+    .success-modal-content { padding: 1.5rem; }
             
     .success-modal-icon {
         font-size: 2.5rem;
@@ -374,6 +363,17 @@ footer.footer {
         width: 2rem;
         height: 2rem;
         font-size: 1rem;
+    }
+
+    footer.footer {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    
+    .footer-content {
+        gap: 0.3rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
