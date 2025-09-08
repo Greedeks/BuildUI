@@ -158,48 +158,60 @@
 	<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
   		<div class="modal-dialog modal-dialog-centered">
     		<div class="modal-content">
-     		<div class="modal-header border-0">
-     		  	<h5 class="modal-title" id="orderModalLabel">Оставьте заявку</h5>
-     		  	<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-     		</div>
-     		<div class="modal-body">
-     			<form id="orderForm">
-     				<div class="mb-3">
-     				      <label for="firstName" class="form-label">Имя</label>
-     				      <input type="text" class="form-control" id="firstName" name="firstName" maxlength="30" required>
-     				      <div class="error-text"></div>
-					</div>
-     				<div class="mb-3">
-     				      <label for="lastName" class="form-label">Фамилия</label>
-     				      <input type="text" class="form-control" id="lastName" name="lastName" maxlength="30" required>
-     				      <div class="error-text"></div>
-					</div>
-     				<div class="mb-3">
-     				      <label for="phone" class="form-label">Номер телефона</label>
-     				      <input type="tel" class="form-control" id="phone" name="phone" maxlength="19" placeholder="+375 (__) ___-__-__" required>
-     				    <div class="error-text"></div>
-					</div>
-     				<div class="mb-3">
-     				      <label for="email" class="form-label">Электронная почта</label>
-     				      <input type="email" class="form-control" id="email" name="email" maxlength="50" required>
-     				      <div class="error-text"></div>
-					</div>
-     				    <div class="mb-3">
-     				      <label for="city" class="form-label">Город</label>
-     				      <input type="text" class="form-control" id="city" name="city" maxlength="50">
-     				      <div class="error-text"></div>
-					</div>
-     				<div class="mb-3">
-     				      <label for="address" class="form-label">Адрес</label>
-						  <textarea class="form-control" id="address" name="address" rows="2" maxlength="100" placeholder="Улица, дом, квартира"></textarea>
-     				      <div class="error-text"></div>
-					</div>
-					<button type="submit" class="btn-glass w-100">Отправить</button>
-     	  		</form>
-    		</div>
+     			<div class="modal-header border-0">
+     			  	<h5 class="modal-title" id="orderModalLabel">Оставьте заявку</h5>
+     			  	<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+     			</div>
+     			<div class="modal-body">
+     				<form id="orderForm">
+     					<div class="mb-3">
+     					      <label for="firstName" class="form-label">Имя</label>
+     					      <input type="text" class="form-control" id="firstName" name="firstName" maxlength="30" required>
+     					      <div class="error-text"></div>
+						</div>
+     					<div class="mb-3">
+     					      <label for="lastName" class="form-label">Фамилия</label>
+     					      <input type="text" class="form-control" id="lastName" name="lastName" maxlength="30" required>
+     					      <div class="error-text"></div>
+						</div>
+     					<div class="mb-3">
+     					      <label for="phone" class="form-label">Номер телефона</label>
+     					      <input type="tel" class="form-control" id="phone" name="phone" maxlength="19" placeholder="+375 (__) ___-__-__" required>
+     					    <div class="error-text"></div>
+						</div>
+     					<div class="mb-3">
+     					      <label for="email" class="form-label">Электронная почта</label>
+     					      <input type="email" class="form-control" id="email" name="email" maxlength="50" required>
+     					      <div class="error-text"></div>
+						</div>
+     					    <div class="mb-3">
+     					      <label for="city" class="form-label">Город</label>
+     					      <input type="text" class="form-control" id="city" name="city" maxlength="50">
+     					      <div class="error-text"></div>
+						</div>
+     					<div class="mb-3">
+     					      <label for="address" class="form-label">Адрес</label>
+							  <textarea class="form-control" id="address" name="address" rows="2" maxlength="100" placeholder="Улица, дом, квартира"></textarea>
+     					      <div class="error-text"></div>
+						</div>
+						<button type="submit" class="btn-glass w-100 p-2">Отправить</button>
+     	  			</form>
+    			</div>
+			</div>
   		</div>
 	</div>
 	
+	 <div class="success-modal" id="SuccessModal">
+        <div class="success-modal-content">
+            <div class="success-modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="success-modal-title">Успешно!</h3>
+            <p class="success-modal-message">Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.</p>
+            <button class="btn-glass w-100 p-2" onclick="hideSuccessModal()">Понятно</button>
+        </div>
+    </div>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/navbar.js"></script>
 	<script src="assets/js/main.js"></script>

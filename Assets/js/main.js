@@ -175,36 +175,38 @@ document.addEventListener('DOMContentLoaded', () => {
         phoneInput.value = formatted;
     }
 
- function showSuccessToast() {
-        const toast = new bootstrap.Toast(document.getElementById('successToast'));
-        toast.show();
-    }
 
+    function hideSuccessModal() {
+        const modal = document.getElementById('SuccessModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        clearTimeout(window.modalTimeout);
+    }
+    window.hideSuccessModal = hideSuccessModal;
+    
     function handleFormSubmit(event) {
         event.preventDefault();
-        
         if (!validateForm()) return;
-
-        // Form data is valid
-        console.log('Данные формы:', Object.fromEntries(new FormData(orderForm).entries()));
         
-        // Показываем уведомление
-        showSuccessToast();
+        console.log(Object.fromEntries(new FormData(orderForm).entries()));
         
-        // Закрываем модальное окно формы
+        const successModal = document.getElementById('SuccessModal');
+        successModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        
+        orderForm.reset();
         const modal = bootstrap.Modal.getInstance(orderModal);
         modal.hide();
         
-        // Очищаем форму
-        orderForm.reset();
+        window.modalTimeout = setTimeout(hideSuccessModal, 3000);
     }
-
-    window.addEventListener('scroll', () => {checkScroll(); animateCounters();});
     
+    document.getElementById('SuccessModal').addEventListener('click', function(e) { if (e.target === this) { hideCustomModal(); } });
+    
+    window.addEventListener('scroll', () => {checkScroll(); animateCounters();});
     window.addEventListener('resize', checkScroll);
     
-   orderForm.addEventListener('submit', handleFormSubmit);
-
+    orderForm.addEventListener('submit', handleFormSubmit);
     phoneInput.addEventListener('input', formatPhoneInput);
     orderModal.addEventListener('show.bs.modal', clearFormInputs);
 
