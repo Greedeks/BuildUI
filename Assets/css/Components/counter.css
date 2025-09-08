@@ -1,0 +1,115 @@
+.counters {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 30px auto;
+    max-width: 1100px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
+}
+
+.counters-title {
+    text-align: center;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.counters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start; 
+    gap: 15px; 
+    max-width: 100%; 
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.counter-item {
+    text-align: center;
+    padding: 20px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(10% - 10px);
+    max-width: calc(50% - 10px);
+    min-width: 160px;
+    box-sizing: border-box;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.counter-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: #d0b6a0;
+}
+
+.counter-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: 'Unbounded', sans-serif;
+    color: #fff;
+    margin: 8px 0;
+}
+
+.counter-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+@media (min-resolution: 150dpi) {
+    .counter-item {
+        flex: 1 1 calc(33.333% - 20px); 
+        max-width: calc(33.333% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .counters-grid {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .counter-item {
+        flex: 0 0 calc(50% - 10px); 
+        max-width: calc(50% - 10px);
+        min-width: 0;
+    }
+
+    .counter-icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+
+    .counter-number {  font-size: 1.8rem; }
+
+    .counter-text { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .counter-item {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        padding: 15px 10px; 
+    }
+
+    .counter-icon { font-size: 1.5rem; }
+
+    .counter-number { font-size: 1.5rem; }
+    
+    .counter-text { font-size: 0.8rem; }
+}

@@ -1,0 +1,101 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 85%;
+    margin: 0 auto 4rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+	border: transparent;
+}
+
+.card-image {
+    width: min(600px, 45vw);
+    height: min(450px, 33vw);
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s ease-out;
+}
+
+.card-content {
+    flex: 1;
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out 0.2s;
+    max-height: 500px; 
+    overflow-y: auto;
+    padding-right: 10px; 
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.card:nth-child(odd) { flex-direction: row; }
+.card:nth-child(even) { flex-direction: row-reverse; }
+
+.card.visible { opacity: 1; transform: translateY(0); }
+.card.visible .card-image { opacity: 1; transform: translateY(0); }
+.card.visible .card-content { opacity: 1; transform: translateY(0); }
+
+.card-content::-webkit-scrollbar { width: 6px; }
+.card-content::-webkit-scrollbar-track { background: transparent; }
+.card-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+.card-content::-webkit-scrollbar-thumb:hover {  background-color: rgba(255, 255, 255, 0.5); }
+
+.card.visible .card-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-content h3 {
+	font-family: 'Unbounded';
+	font-weight: 600;
+	margin-bottom: 1rem;
+	font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.card-content p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column !important;
+        text-align: center;
+        width: 95%;
+        gap: 1.5rem;
+    }
+    .card-content {
+        max-height: 300px;
+        font-size: clamp(0.9rem, 1vw, 1.1rem);
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+
+}
