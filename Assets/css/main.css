@@ -141,6 +141,18 @@ main.main {
     width: 100%;
 }
 
+/* Original Style */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: currentColor !important;
+    transition: all 9999s ease-in-out 0s;
+    background-color: transparent !important;
+    color: currentColor !important;
+}
+
 /* Model Window */
 .modal-content {
     background: rgba(11, 19, 28, 0.5);
@@ -199,10 +211,7 @@ label { font-weight: 500; }
     transform: scale(0.8);
     transition: transform 0.3s ease-out;
 }
-
-.modal.show .modal-dialog {
-    transform: scale(1);
-}
+.modal.show .modal-dialog { transform: scale(1); }
 
 /* Footer */
 footer.footer {
@@ -245,7 +254,7 @@ footer.footer {
 
     .modal-dialog {
         max-width: 95% !important;
-        margin: auto;
+        margin: 5px auto;
     }
 
     .modal-content {
@@ -262,13 +271,9 @@ footer.footer {
 @media (max-width: 480px) {
     .preview { margin-top: 50px; }
 
-    .modal-title {
-        font-size: 1.1rem;
-    }
+    .modal-title { font-size: 1.1rem; }
 
-    .form-control {
-        font-size: 0.85rem;
-    }
+    .form-control { font-size: 0.85rem; }
 
     footer.footer {
         font-size: 0.8rem;
@@ -280,4 +285,17 @@ footer.footer {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+
+@media (max-width: 380px) {
+    .modal-content {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .modal-header {  padding: 0.5rem;}
+
+    .modal-title { font-size: 1rem; }
+
+    .form-control {  font-size: 0.8rem;  padding: 0.4rem; }
 }
