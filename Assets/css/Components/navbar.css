@@ -118,6 +118,13 @@
     transform: translate(-50%, 0) scale(1);
 }   
 
+@media (hover: none) and (pointer: coarse) {
+    .nav-link:hover {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
 @media (min-resolution: 150dpi) {
      .w-50 { width: 75% !important; }
 }

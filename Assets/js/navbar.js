@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
         moveIndicator(active);
     }
 
+    function setActiveLinkByUrl() {
+        const currentUrl = window.location.href;
+        
+        navLinks.forEach(link => {
+            if (link.href === currentUrl) { link.classList.add('active'); } 
+            else { link.classList.remove('active'); }
+        });
+        
+        updateIndicator();
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             if (this.classList.contains('active') || this.href === window.location.href) {
@@ -30,10 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
             moveIndicator(this);
             showTooltipFor(this);
 
-            setTimeout(() => {window.location.href = targetUrl; }, 400); 
+            setTimeout(() => { window.location.href = targetUrl;  }, 400);
         });
     });
 
+    setActiveLinkByUrl();
+
+    window.addEventListener('pageshow', function(event) { if (event.persisted) { setTimeout(setActiveLinkByUrl, 50);  }});
     window.addEventListener('load', updateIndicator);
 
     // Fallback / orientationchange
@@ -59,9 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let hideTimer;
 
-    function shouldUseTooltip() {
-        return window.matchMedia('(max-width: 480px)').matches;
-    }
+    function shouldUseTooltip() { return window.matchMedia('(max-width: 480px)').matches;}
 
     function positionTooltipBelow(link) {
         const rect = link.getBoundingClientRect();
