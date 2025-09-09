@@ -111,14 +111,14 @@ main.main {
 /* Thumbnails */
 .thumbnails-container {
     width: 100%;
-    max-width: 100%; /* Изменяем на 100% */
+    max-width: 100%;
     margin: 0 auto 30px;
     padding: 0 20px;
     position: relative;
     display: flex;
     justify-content: center;
     order: 1;
-    overflow: visible; /* Добавляем */
+    overflow: visible;
 }
 
 .thumbnails {
@@ -130,28 +130,15 @@ main.main {
     scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    justify-content: flex-start; /* Меняем на flex-start */
+    justify-content: flex-start;
     width: 100%;
-    max-width: 800px; /* Добавляем ограничение */
+    max-width: 800px;
 }
 
-.thumbnails::-webkit-scrollbar {
-    height: 6px;
-}
-
-.thumbnails::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.thumbnails::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.thumbnails::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
+.thumbnails::-webkit-scrollbar {  height: 6px; border-radius: 10px; }
+.thumbnails::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+.thumbnails::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px;  }
+.thumbnails::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5);  }
 
 .thumbnail {
     width: 60px;
@@ -189,6 +176,10 @@ main.main {
 }
 
 /* Stage & Card */
+.team-member { display: none; }
+
+#main-card { transition: all 0.3s ease-in-out; }
+
 .stage {
     display: flex;
     flex-direction: row;
@@ -220,9 +211,8 @@ main.main {
     overflow: visible;
     gap: 25px;
     margin: 0 20px;
-    min-height: 280px;
+    min-height: 300px;
     width: 800px;
-    min-width: 300px;
     max-width: 1000px;
 }
 
@@ -282,10 +272,6 @@ main.main {
     color: #fff;
 }
 
-.team-member { display: none; }
-
-#main-card { transition: all 0.3s ease-in-out; }
-
 /* Indicators */
 .indicators {
     margin-top: 20px;
@@ -327,6 +313,7 @@ main.main {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 15px rgba(224, 193, 167, 0.3);
 }
+
 /* Footer */
 footer.footer {
     text-align: center;
@@ -356,6 +343,8 @@ footer.footer {
 }
 
 @media (max-width: 768px) {
+    .stage { min-height: 500px; }
+
     .card {
         flex-direction: column;
         align-items: center; 
@@ -364,11 +353,13 @@ footer.footer {
         margin: 0 10px;
         margin-top: 20px;
     }
+
     .card-header img { 
         width: 160px; 
         height: 200px; 
         margin-top: -50px; 
     }
+
     .card-header .info h3 { font-size: 1.4rem; }
     .card-header .info .role { font-size: 1rem; }
     .card .desc { font-size: 0.9rem; }
@@ -430,6 +421,8 @@ footer.footer {
 }
 
 @media (max-width: 480px) {
+    .stage { min-height: 550px; }
+
     .card {
         width: 100%;
         padding: 12px;
