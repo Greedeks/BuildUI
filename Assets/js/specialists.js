@@ -64,18 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 thumbnail.classList.add('active');
             }
 
-            thumbnail.addEventListener('click', () => {
-                changeSlide(index);
-            });
+            thumbnail.addEventListener('click', () => { changeSlide(index); });
 
             thumbnails.appendChild(thumbnail);
 
-            if (!window.thumbnailsLoaded) { setTimeout(() => { thumbnail.classList.add('loaded'); }, index * 50); } 
-            else { thumbnail.classList.add('loaded'); }
-         });
+            if (!window.thumbnailsLoaded) { setTimeout(() => { thumbnail.classList.add('loaded'); }, index * 50);
+            } else { thumbnail.classList.add('loaded'); }
+        });
 
-            window.thumbnailsLoaded = true;
-            scrollToActiveThumbnail();
+        window.thumbnailsLoaded = true;
+        setTimeout(scrollToActiveThumbnail, 150);
      }
 
 
@@ -101,19 +99,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function scrollToActiveThumbnail() {
+        const activeThumbnail = thumbnails.querySelector('.thumbnail.active');
+        if (activeThumbnail) {  activeThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });}
+    }
+
     function changeSlide(index) {
         if (index === currentIndex) return;
-
+        
         const allThumbnails = document.querySelectorAll('.thumbnail');
         allThumbnails.forEach(thumb => { thumb.classList.remove('active'); });
-
-
+        
         const selectedThumbnail = document.querySelector(`.thumbnail[data-index="${index}"]`);
         if (selectedThumbnail) { selectedThumbnail.classList.add('active'); }
 
         currentIndex = index;
         resetAutoSlide();
         renderCarousel();
+
+        setTimeout(scrollToActiveThumbnail, 100);
     }
 
     function nextSlide() { changeSlide((currentIndex + 1) % team.length); }

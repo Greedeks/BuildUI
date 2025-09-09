@@ -111,13 +111,14 @@ main.main {
 /* Thumbnails */
 .thumbnails-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 100%; /* Изменяем на 100% */
     margin: 0 auto 30px;
     padding: 0 20px;
     position: relative;
     display: flex;
     justify-content: center;
     order: 1;
+    overflow: visible; /* Добавляем */
 }
 
 .thumbnails {
@@ -129,7 +130,9 @@ main.main {
     scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    justify-content: center;
+    justify-content: flex-start; /* Меняем на flex-start */
+    width: 100%;
+    max-width: 800px; /* Добавляем ограничение */
 }
 
 .thumbnails::-webkit-scrollbar {
@@ -385,6 +388,7 @@ footer.footer {
     .thumbnails {
         gap: 10px;
         padding: 12px 8px;
+        justify-content: flex-start;
     }
 
     .indicators {  margin-top: 15px; }
