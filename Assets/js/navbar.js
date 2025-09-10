@@ -1,6 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const navIndicator = document.getElementById('navIndicator');
+    const tooltip = document.createElement('div');
+    tooltip.className = 'nav-tooltip';
+    document.body.appendChild(tooltip);
+
+    let hideTooltipTimer;
 
     function moveIndicator(link) {
         if (!link || !navIndicator) return;
@@ -17,70 +22,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setActiveLinkByUrl() {
         const currentUrl = window.location.href;
-        
         navLinks.forEach(link => {
-            if (link.href === currentUrl) { link.classList.add('active'); } 
-            else { link.classList.remove('active'); }
+            link.classList.toggle('active', link.href === currentUrl);
         });
-        
         updateIndicator();
+        updateColor();
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this.classList.contains('active') || this.href === window.location.href) {
-                e.preventDefault();
-                return;
-            }
-            const targetUrl = this.href;
-            
-            e.preventDefault();
-            
-            navLinks.forEach(item => item.classList.remove('active'));
-            this.classList.add('active');
-            moveIndicator(this);
-            showTooltipFor(this);
-
-            setTimeout(() => { window.location.href = targetUrl;  }, 400);
+    // Fix stuck hover/active
+    function clearHoverStates() {
+        navLinks.forEach(link => {
+            link.blur();
+            link.classList.remove('hover');
         });
-    });
+        updateColor();
+    }
 
-    setActiveLinkByUrl();
-
-    window.addEventListener('pageshow', function(event) { if (event.persisted) { setTimeout(setActiveLinkByUrl, 50);  }});
-    window.addEventListener('load', updateIndicator);
-
-    // Fallback / orientationchange
-    let resizeTimer;
-    ['resize', 'orientationchange'].forEach(evt => {
-        window.addEventListener(evt, () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(updateIndicator, 100);
+    function updateColor() {
+        navLinks.forEach(link => {
+            const icon = link.querySelector('.nav-icon'), text = link.querySelector('.nav-text');
+            const activeColor = '#e0c1a7', defaultColor = '#ffffffcc';
+            if (icon) icon.style.color = link.classList.contains('active') ? activeColor : defaultColor;
+            if (text) text.style.color = link.classList.contains('active') ? activeColor : defaultColor;
         });
-    });
-
-    // ResizeObserver
-    if (window.ResizeObserver) {
-        const navContainer = document.querySelector('.nav-glass');
-        const observer = new ResizeObserver(() => updateIndicator());
-        if (navContainer) observer.observe(navContainer);
     }
 
     // Tooltip
-    const tooltip = document.createElement('div');
-    tooltip.className = 'nav-tooltip';
-    document.body.appendChild(tooltip);
-
-    let hideTimer;
-
-    function shouldUseTooltip() { return window.matchMedia('(max-width: 480px)').matches;}
+    function shouldUseTooltip() { return window.matchMedia('(max-width: 480px)').matches; }
 
     function positionTooltipBelow(link) {
         const rect = link.getBoundingClientRect();
-        const left = rect.left + rect.width / 2;
-        const top = rect.bottom + 8;
-        tooltip.style.left = left + 'px';
-        tooltip.style.top = top + 'px';
+        tooltip.style.left = rect.left + rect.width / 2 + 'px';
+        tooltip.style.top = rect.bottom + 8 + 'px';
     }
 
     function showTooltipFor(link) {
@@ -90,25 +63,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
         tooltip.textContent = text;
         positionTooltipBelow(link);
-
-        clearTimeout(hideTimer);
+        clearTimeout(hideTooltipTimer);
         tooltip.classList.add('show');
-        hideTimer = setTimeout(() => {
-            tooltip.classList.remove('show');
-        }, 1000);
+        hideTooltipTimer = setTimeout(() => tooltip.classList.remove('show'), 1000);
     }
 
+    // Click handler
     navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (this.classList.contains('active') || this.href === window.location.href) {  e.preventDefault(); return; }
+
+            e.preventDefault();
+
+            navLinks.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+            moveIndicator(this);
+            updateColor();
+            showTooltipFor(this);
+
+            setTimeout(() => {  window.location.href = this.href; }, 350);
+        });
+
         link.addEventListener('mouseenter', () => showTooltipFor(link), { passive: true });
         link.addEventListener('touchstart', () => showTooltipFor(link), { passive: true });
     });
 
-    function repositionIfVisible() {
-        if (!tooltip.classList.contains('show')) return;
-        const active = document.querySelector('.nav-link.active');
-        if (active) positionTooltipBelow(active);
+   
+    setActiveLinkByUrl();
+
+    window.addEventListener('pageshow', function (event) { if (event.persisted) { setTimeout(() => { setActiveLinkByUrl(); clearHoverStates(); }, 50); } });
+    document.addEventListener('touchstart', clearHoverStates, { passive: true });
+    document.addEventListener('pointercancel', clearHoverStates);
+
+     // Fallback / orientationchange
+    let resizeTimer;
+    ['resize', 'orientationchange'].forEach(evt => {
+        window.addEventListener(evt, () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(updateIndicator, 100);
+        });
+    });
+
+    // ResizeObserver для динамических изменений
+    if (window.ResizeObserver) {
+        const navContainer = document.querySelector('.nav-glass');
+        const observer = new ResizeObserver(updateIndicator);
+        if (navContainer) observer.observe(navContainer);
     }
 
-    window.addEventListener('resize', repositionIfVisible);
-    window.addEventListener('scroll', repositionIfVisible);
+    function repositionTooltipIfVisible() {
+        if (tooltip.classList.contains('show')) {
+            const active = document.querySelector('.nav-link.active');
+            if (active) positionTooltipBelow(active);
+        }
+    }
+
+    window.addEventListener('resize', repositionTooltipIfVisible);
+    window.addEventListener('scroll', repositionTooltipIfVisible);
 });

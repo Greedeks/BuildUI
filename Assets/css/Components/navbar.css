@@ -119,10 +119,7 @@
 }   
 
 @media (hover: none) and (pointer: coarse) {
-    .nav-link:hover {
-        transform: none !important;
-        opacity: 1 !important;
-    }
+    .nav-link:hover { background: none !important; }
 }
 
 @media (min-resolution: 150dpi) {
