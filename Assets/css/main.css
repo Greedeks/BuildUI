@@ -9,7 +9,7 @@ html, body {
 body {
     min-width: 320px;
     font-family: 'Roboto', sans-serif;
-    color: white;
+    color: #ffffffcc;
     background-color: #0b131c;
     position: relative;
 }
@@ -40,7 +40,7 @@ body::before {
 .wrapper > * {
     position: relative;
     z-index: 1; 
-    color: white;
+    color: #ffffffcc;
 }
 
 .wrapper::before {
@@ -161,7 +161,7 @@ input:-webkit-autofill:active {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
+    color: #ffffffcc;
     padding: 1rem;
 }
 
@@ -175,14 +175,14 @@ input:-webkit-autofill:active {
 .form-control {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    color: #ffffffcc;
 }
 
 .form-control:focus {
     background: rgba(255, 255, 255, 0.15);
     border-color: #d0b6a0;
     box-shadow: none;
-    color: white;
+    color: #ffffffcc;
 }
 
 .form-control::placeholder {

@@ -9,7 +9,7 @@ html, body {
 body {
     min-width: 320px;
     font-family: 'Roboto', sans-serif;
-    color: white;
+    color: #ffffffcc;
     background-color: #0b131c;
     position: relative;
 }
@@ -39,7 +39,7 @@ body::before {
 .wrapper > * {
     position: relative;
     z-index: 1; 
-    color: white;
+    color: #ffffffcc;
 }
 
 /* Header */
@@ -250,7 +250,7 @@ main.main {
 .card-header .info h3 {
     margin: 0 0 6px 0;
     font-size: 1.8rem;
-    color: #fff;
+    color: #ffffffcc;
     font-weight: 600;
 }
 
@@ -269,7 +269,7 @@ main.main {
     line-height: 1.6;
     margin-top: 5px;
     text-align: left;
-    color: #fff;
+    color: #ffffffcc;
 }
 
 /* Indicators */
