@@ -343,6 +343,8 @@ footer.footer {
 }
 
 @media (max-width: 768px) {
+    .preview { margin-top: 0px; }
+    
     .stage { min-height: 500px; }
 
     .card {
@@ -394,8 +396,6 @@ footer.footer {
 }
 
 @media (max-width: 600px) {
-    .preview { margin-top: 0px; }
-
     .card {
         flex-direction: column;
         align-items: center;
