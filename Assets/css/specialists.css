@@ -367,7 +367,7 @@ footer.footer {
     .thumbnails-container {
         max-width: 100%;
         padding: 0 15px;
-        margin: 0px auto 20px;
+        margin: 0 auto 10px !important;
     }
     
     .thumbnail {
@@ -424,19 +424,29 @@ footer.footer {
     .stage { min-height: 550px; }
 
     .card {
-        width: 100%;
-        padding: 12px;
-        margin: 0 5px;
+        width: 90%;
+        padding: 10px;
+        margin: 0 auto;
     }
 
     .card-header img {
         width: 120px;
         height: 150px;
-        margin-top: -20px;
+        margin-top: -40px;
+    }
+    .card-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-header .info {
+        text-align: center;
     }
 
     .card-header .info h3 { font-size: 1.2rem; }
     .card .desc { font-size: 0.85rem; }
+    
 
     .thumbnail {
         width: 45px;
@@ -449,7 +459,7 @@ footer.footer {
         padding: 10px 6px;
     }
     
-    .thumbnails-container { margin: 0 auto 15px; }
+    .thumbnails-container {  margin: 0 auto 5px !important; }
 
     .thumbnail.active {
         transform: scale(1.15);
