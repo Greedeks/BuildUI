@@ -305,7 +305,7 @@ main.main {
 }
 
 .dot.active {
-    width: 50px;
+    width: 30px;
     background: linear-gradient(90deg, rgba(224, 193, 167, 0.8), rgba(208, 182, 160, 0.8));
     border-radius: 10px;
     backdrop-filter: blur(8px);
@@ -382,6 +382,7 @@ footer.footer {
         justify-content: flex-start;
     }
 
+    .indicators-container { gap: 6px; }
     .indicators {  margin-top: 15px; }
 
     .dot { 
@@ -389,7 +390,7 @@ footer.footer {
         height: 8px; 
     }
     
-    .dot.active {width: 40px; }
+    .dot.active {width: 20px; }
 }
 
 @media (max-width: 600px) {
@@ -440,14 +441,10 @@ footer.footer {
         text-align: center;
     }
 
-    .card-header .info {
-        text-align: center;
-    }
-
+    .card-header .info {  text-align: center; }
     .card-header .info h3 { font-size: 1.2rem; }
     .card .desc { font-size: 0.85rem; }
     
-
     .thumbnail {
         width: 45px;
         height: 45px;
@@ -465,8 +462,6 @@ footer.footer {
         transform: scale(1.15);
         border-width: 2px;
     }
-
-    .indicators { margin-top: 15px; }
 
     footer.footer {
         font-size: 0.8rem;
@@ -500,5 +495,5 @@ footer.footer {
         height: 7px; 
     }
     
-    .dot.active {width: 35px; }
+    .dot.active {width: 15px; }
 }
