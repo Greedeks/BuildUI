@@ -126,6 +126,9 @@ main.main {
     padding: 2rem;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
     width: 100%;
@@ -159,6 +162,7 @@ main.main {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 500;
+    text-shadow: 1px 1px 1px black;
 }
 
 .contact-details {
@@ -175,6 +179,7 @@ main.main {
     text-decoration: none;
     font-size: 0.95rem;
     margin: 0;
+    text-shadow: 1px 1px 1px black;
 }
 .contact-details a:hover {color: #d0b6a0; }
 .contact-info.visible { opacity: 1; transform: translateY(0); }
@@ -190,13 +195,17 @@ main.main {
 }
 
 .city-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     padding: 0.6rem 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     text-align: center;
     min-height: 30px;
     display: flex;
@@ -206,7 +215,7 @@ main.main {
 }
 
 .city-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
 }
@@ -223,18 +232,20 @@ main.main {
     color: #ffffffcc;
     margin: 0;
     white-space: nowrap;
+    text-shadow: 1px 1px 1px black;
 }
 
 #selectedAddress {
     min-height: 2.8rem;
     height: auto;
     font-size: 0.9rem;
+    font-family: 'Unbounded';
+    font-weight: 300;
     margin-top: 1.2rem;
     padding: 0.7rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    border-bottom: 2px solid #e0c1a7;
-    backdrop-filter: blur(10px);
+    background: transparent;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);;
     width: 100%;
     text-align: left;
     display: flex;
@@ -258,7 +269,13 @@ main.main {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     color: #ffffffcc;
     transition: all 0.3s ease;
 }
@@ -266,6 +283,7 @@ main.main {
 @media (hover: hover) {
     .social-link:hover {
         background: #d0b6a0;
+        border-color: #e0c1a7;
         color: #0b131c;
         transform: translateY(-3px);
     }
@@ -274,6 +292,7 @@ main.main {
 @media (hover: none) {
     .social-link:active {
         background: #d0b6a0;
+        border-color: #e0c1a7;
         color: #0b131c;
         transform: translateY(-3px) scale(0.95);
         transition: all 0.1s ease; 
@@ -328,6 +347,9 @@ footer.footer {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

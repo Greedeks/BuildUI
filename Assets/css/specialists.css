@@ -135,10 +135,14 @@ main.main {
     max-width: 800px;
 }
 
-.thumbnails::-webkit-scrollbar {  height: 6px; border-radius: 10px; }
-.thumbnails::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-.thumbnails::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 10px;  }
-.thumbnails::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.5);  }
+.thumbnails::-webkit-scrollbar { width: 6px; border-radius: 10px; }
+.thumbnails::-webkit-scrollbar-track { background: transparent; }
+.thumbnails::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+.thumbnails::-webkit-scrollbar-thumb:hover {  background-color: rgba(255, 255, 255, 0.5); }
 
 .thumbnail {
     width: 60px;
@@ -192,8 +196,9 @@ main.main {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     will-change: transform, backdrop-filter;
@@ -310,6 +315,9 @@ main.main {
     border-radius: 10px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 15px rgba(224, 193, 167, 0.3);
 }
@@ -321,6 +329,9 @@ footer.footer {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

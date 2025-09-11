@@ -47,7 +47,7 @@
 .card.visible .card-image { opacity: 1; transform: translateY(0); }
 .card.visible .card-content { opacity: 1; transform: translateY(0); }
 
-.card-content::-webkit-scrollbar { width: 6px; }
+.card-content::-webkit-scrollbar { width: 6px; border-radius: 10px; }
 .card-content::-webkit-scrollbar-track { background: transparent; }
 .card-content::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.3);

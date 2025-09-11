@@ -158,7 +158,10 @@ input:-webkit-autofill:active {
     background: rgba(11, 19, 28, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffffcc;
@@ -261,7 +264,10 @@ label { font-weight: 500; }
     background: rgba(11, 19, 28, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-radius: 20px;
     padding: 2rem;
     max-width: 350px;
@@ -280,6 +286,9 @@ footer.footer {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

@@ -60,6 +60,9 @@
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
     border-radius: 15px;
     transition: all 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
     z-index: 0;

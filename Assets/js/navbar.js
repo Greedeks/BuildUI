@@ -21,10 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function setActiveLinkByUrl() {
-        const currentUrl = window.location.href;
-        navLinks.forEach(link => {
-            link.classList.toggle('active', link.href === currentUrl);
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        const nonHashLinks = Array.from(navLinks).filter(link => !link.href.endsWith('#') && link.getAttribute('href') !== '#' );
+        nonHashLinks.forEach(link => {
+            const linkUrl = new URL(link.href);
+            const linkPath = linkUrl.pathname;
+            const normalizedCurrent = currentPath.replace(/\/index\.html$/, '').replace(/\/$/, '').toLowerCase();
+            const normalizedLink = linkPath.replace(/\/index\.html$/, '').replace(/\/$/, '').toLowerCase();
+            if (normalizedLink === normalizedCurrent) { link.classList.add('active'); }
         });
+
         updateIndicator();
         updateColor();
     }
@@ -89,8 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
    
-    setActiveLinkByUrl();
-
     window.addEventListener('pageshow', function (event) { if (event.persisted) { setTimeout(() => { setActiveLinkByUrl(); clearHoverStates(); }, 50); } });
     document.addEventListener('touchstart', clearHoverStates, { passive: true });
     document.addEventListener('pointercancel', clearHoverStates);
@@ -120,4 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', repositionTooltipIfVisible);
     window.addEventListener('scroll', repositionTooltipIfVisible);
+
+    setActiveLinkByUrl();
 });
