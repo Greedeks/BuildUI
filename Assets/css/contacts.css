@@ -343,7 +343,7 @@ main.main {
 /* Footer */
 footer.footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.7rem;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -354,7 +354,6 @@ footer.footer {
 }
 
 .footer-content {
-    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
