@@ -29,7 +29,7 @@
     flex: 1;
     font-size: clamp(1rem, 1.2vw, 1.3rem);
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.8);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out 0.2s;
@@ -71,7 +71,7 @@
 .card-content p {
 	font-size: 1.1rem;
 	line-height: 1.6;
-	color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 768px) {
