@@ -310,6 +310,10 @@ footer.footer {
     .preview { margin-top: 50px; }
 }
 
+@media (min-height: 900px) and (max-width: 430px) {
+    .main h3 { height: 2.6em; }
+}
+
 @media (max-width: 768px) {
     .preview { margin-top: 100px; }
 
